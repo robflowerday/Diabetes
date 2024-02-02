@@ -1,0 +1,11 @@
+/home/robert/Diabetes/Diabetes/Diabetes.Test/bin/Debug/Diabetes.Test.dll
+/home/robert/Diabetes/Diabetes/Diabetes.Test/bin/Debug/Diabetes.Test.pdb
+/home/robert/Diabetes/Diabetes/Diabetes.Test/bin/Debug/Diabetes.exe
+/home/robert/Diabetes/Diabetes/Diabetes.Test/bin/Debug/nunit.framework.dll
+/home/robert/Diabetes/Diabetes/Diabetes.Test/bin/Debug/Diabetes.pdb
+/home/robert/Diabetes/Diabetes/Diabetes.Test/bin/Debug/nunit.framework.xml
+/home/robert/Diabetes/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.csproj.AssemblyReference.cache
+/home/robert/Diabetes/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.csproj.CoreCompileInputs.cache
+/home/robert/Diabetes/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.csproj.CopyComplete
+/home/robert/Diabetes/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.dll
+/home/robert/Diabetes/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.pdb

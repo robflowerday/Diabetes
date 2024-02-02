@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diabetes", "Diabetes\Diabetes.csproj", "{29ED6CB9-DB51-4279-8AD6-46584BE51445}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diabetes.Test", "Diabetes.Test\Diabetes.Test.csproj", "{A802BC39-5C64-4EAF-8C3D-92849B6EABB4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29ED6CB9-DB51-4279-8AD6-46584BE51445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29ED6CB9-DB51-4279-8AD6-46584BE51445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29ED6CB9-DB51-4279-8AD6-46584BE51445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29ED6CB9-DB51-4279-8AD6-46584BE51445}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A802BC39-5C64-4EAF-8C3D-92849B6EABB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A802BC39-5C64-4EAF-8C3D-92849B6EABB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A802BC39-5C64-4EAF-8C3D-92849B6EABB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A802BC39-5C64-4EAF-8C3D-92849B6EABB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
