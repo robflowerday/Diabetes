@@ -20,3 +20,13 @@
 /home/rob/DiabetesApp/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.csproj.CopyComplete
 /home/rob/DiabetesApp/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.dll
 /home/rob/DiabetesApp/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.pdb
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/Castle.Core.dll
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/Moq.dll
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/System.Runtime.CompilerServices.Unsafe.dll
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/System.Threading.Tasks.Extensions.dll
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/Newtonsoft.Json.dll
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/Castle.Core.xml
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/Moq.xml
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/System.Runtime.CompilerServices.Unsafe.xml
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/System.Threading.Tasks.Extensions.xml
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/Newtonsoft.Json.xml
