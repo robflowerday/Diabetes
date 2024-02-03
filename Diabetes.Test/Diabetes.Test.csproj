@@ -43,6 +43,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="DynamicMetricRecalculationStrategies\EventHelperFunctionsTests\GetEventsInPeriodTests.cs" />
         <Compile Include="DynamicMetricRecalculationStrategies\RecalculateLongActingOnlyTests\GetLastNightsEventsTests.cs" />
         <Compile Include="DynamicMetricRecalculationStrategies\RecalculateLongActingOnlyTests\IsBloodGlucoseOnlyEvent.cs" />
         <Compile Include="Tests.cs"/>

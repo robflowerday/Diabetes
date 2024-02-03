@@ -4,3 +4,9 @@
 /home/robert/Diabetes/Diabetes/Diabetes/obj/Debug/Diabetes.csproj.CoreCompileInputs.cache
 /home/robert/Diabetes/Diabetes/Diabetes/obj/Debug/Diabetes.exe
 /home/robert/Diabetes/Diabetes/Diabetes/obj/Debug/Diabetes.pdb
+/home/rob/DiabetesApp/Diabetes/Diabetes/bin/Debug/Diabetes.exe
+/home/rob/DiabetesApp/Diabetes/Diabetes/bin/Debug/Diabetes.pdb
+/home/rob/DiabetesApp/Diabetes/Diabetes/obj/Debug/Diabetes.csproj.AssemblyReference.cache
+/home/rob/DiabetesApp/Diabetes/Diabetes/obj/Debug/Diabetes.csproj.CoreCompileInputs.cache
+/home/rob/DiabetesApp/Diabetes/Diabetes/obj/Debug/Diabetes.exe
+/home/rob/DiabetesApp/Diabetes/Diabetes/obj/Debug/Diabetes.pdb

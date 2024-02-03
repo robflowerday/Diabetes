@@ -9,3 +9,14 @@
 /home/robert/Diabetes/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.csproj.CopyComplete
 /home/robert/Diabetes/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.dll
 /home/robert/Diabetes/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.pdb
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/Diabetes.Test.dll
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/Diabetes.Test.pdb
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/Diabetes.exe
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/nunit.framework.dll
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/Diabetes.pdb
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/bin/Debug/nunit.framework.xml
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.csproj.AssemblyReference.cache
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.csproj.CoreCompileInputs.cache
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.csproj.CopyComplete
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.dll
+/home/rob/DiabetesApp/Diabetes/Diabetes.Test/obj/Debug/Diabetes.Test.pdb

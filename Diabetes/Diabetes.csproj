@@ -41,11 +41,10 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="DiabetesManagement.cs" />
-        <Compile Include="DynamicMetricRecalculationStrategies\BasicStrategy.cs" />
-        <Compile Include="DynamicMetricRecalculationStrategies\DoNothingStrategy.cs" />
         <Compile Include="DynamicMetricRecalculationStrategies\IDynamicallyRecalculateMetricsStrategy.cs" />
         <Compile Include="DynamicMetricRecalculationStrategies\RecalculateLongActingOnly.cs" />
         <Compile Include="EventData.cs" />
+        <Compile Include="EventHelperFunctions\GetEventsInPeriod.cs" />
         <Compile Include="Program.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="SampleEvents.cs" />
