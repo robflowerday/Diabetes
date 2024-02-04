@@ -17,9 +17,9 @@ namespace Diabetes.User
                     _insulinSensitivityFactor = value;
                 else
                 {
-                    throw new ArgumentException(
-                        message:
-                        $"Invalid Insulin Sensitivity Factor value given: {value}. Insulin Sensitivity Factor must be greater than 0.");
+                    throw new Exception(
+                        message: string.Format(UserConfigurationErrorMessages.NonPositiveInsulinSensitivityFactor,
+                            _insulinSensitivityFactor));
                 }
             }
         }
@@ -34,9 +34,9 @@ namespace Diabetes.User
                     _carbsToInsulinRation = value;
                 else
                 {
-                    throw new ArgumentException(
-                        message:
-                        $"Invalid Carbs to Insulin Ratio value given: {value}. Carbs to Insulin Ratio must be greater than 0.");
+                    throw new Exception(
+                        message: string.Format(UserConfigurationErrorMessages.NonPositiveCarbToInsulinRatio,
+                            _carbsToInsulinRation));
                 }
             }
         }
@@ -52,9 +52,9 @@ namespace Diabetes.User
                     _longActingInsulinDoseRecommendation = value;
                 else
                 {
-                    throw new ArgumentException(
-                        message:
-                        $"Invalid Long Acting Insulin Does Recommendation value given: {value}. Long Acting Insulin Does Recommendation must be 0 or greater.");
+                    throw new Exception(
+                        message: string.Format(UserConfigurationErrorMessages.NegativeLongActingInsulinDoesRecommendation,
+                            _longActingInsulinDoseRecommendation));
                 }
             }
         }
@@ -70,9 +70,8 @@ namespace Diabetes.User
                         _targetIsolationHours = value;
                 else
                 {
-                    throw new ArgumentException(
-                        message:
-                        $"Invalid Target Isolation Hours value given: {value}. Target Isolation Hours must be 0 or greater.");
+                    throw new Exception(
+                        message: string.Format(UserConfigurationErrorMessages.NegativeTargetIsolationHours, _targetIsolationHours));
                 }
             }
         }
@@ -87,9 +86,8 @@ namespace Diabetes.User
                         _minIsolationHours = value;
                 else
                 {
-                    throw new ArgumentException(
-                        message:
-                        $"Invalid Minimum Isolation Hours value given: {value}. Minimum Isolation Hours must be 0 or greater.");
+                    throw new Exception(
+                        message: string.Format(UserConfigurationErrorMessages.NegativeMinIsolationHours, _minIsolationHours));
                 }
             }
         }
@@ -104,9 +102,8 @@ namespace Diabetes.User
                         _maxIsolationHours = value;
                 else
                 {
-                    throw new ArgumentException(
-                        message:
-                        $"Invalid Maximum Isolation Hours value given: {value}. Maximum Isolation Hours must be 0 or greater.");
+                    throw new Exception(
+                        message: string.Format(UserConfigurationErrorMessages.NegativeMaxIsolationHours, _maxIsolationHours));
                 }
             }
         }
