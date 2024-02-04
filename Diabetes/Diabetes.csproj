@@ -58,6 +58,7 @@
         <Compile Include="User\FileIO\IFileIO.cs" />
         <Compile Include="User\FileIO\MockFileIO.cs" />
         <Compile Include="User\UserConfiguration.cs" />
+        <Compile Include="User\UserConfigurationErrorMessages.cs" />
         <Compile Include="User\UserConfigurationHandler.cs" />
     </ItemGroup>
     <ItemGroup>

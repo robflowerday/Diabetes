@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 
 namespace Diabetes.User
@@ -66,16 +67,7 @@ namespace Diabetes.User
             set
             {
                 if (value >= 0)
-                    if (_minIsolationHours > value)
-                        throw new ArgumentException(
-                            "Target Isolation Hours must be greater than or equal to minimum target isolation Hours.");
-                    else if (_maxIsolationHours < value)
-                        throw new ArgumentException(
-                            "Target Isolation Hours must be less than or equal to maximum target isolation Hours.");
-                    else
-                    {
                         _targetIsolationHours = value;
-                    }
                 else
                 {
                     throw new ArgumentException(
@@ -92,15 +84,7 @@ namespace Diabetes.User
             set
             {
                 if (value >= 0)
-                    if (_targetIsolationHours == null)
                         _minIsolationHours = value;
-                    else if (_targetIsolationHours < value)
-                        throw new ArgumentException(
-                            "Target Isolation Hours must be greater than or equal to minimum target isolation Hours.");
-                    else
-                    {
-                        _minIsolationHours = value;
-                    }
                 else
                 {
                     throw new ArgumentException(
@@ -117,15 +101,7 @@ namespace Diabetes.User
             set
             {
                 if (value >= 0)
-                    if (_targetIsolationHours == null)
-                        _minIsolationHours = value;
-                    else if (_targetIsolationHours > value)
-                        throw new ArgumentException(
-                            "Target Isolation Hours must be less than or equal to maximum target isolation Hours.");
-                    else
-                    {
                         _maxIsolationHours = value;
-                    }
                 else
                 {
                     throw new ArgumentException(
@@ -151,9 +127,8 @@ namespace Diabetes.User
         
             // Action free isolation period
             TargetIsolationHours = 4; // Aim to disregard 4 hours of event readings to ensure all previous actions are no longer affecting the users blood glucose level whilst leaving sufficient remaining event time for analysis.
-            MinHoursOvernightWithoutAction = 3.5; // Disregard at least the first 3.5 hours of events in the overnight period to ensure previous actions aren't still having an effect.
-            MaxHoursOvernightWithoutAction = 4.5; // Disregard at most the first 4.5 hours of events in the overnight period to ensure that the period being analysed is long enough ToDo: Replace this with a check on check analysis length long enough
-
+            MinIsolationHours = 3.5; // Disregard at least the first 3.5 hours of events in the overnight period to ensure previous actions aren't still having an effect.
+            MaxIsolationHours = 4.5; // Disregard at most the first 4.5 hours of events in the overnight period to ensure that the period being analysed is long enough ToDo: Replace this with a check on check analysis length long enough
             
             // Long acting insulin recalculation config variables
             OvernightStartTime = new TimeSpan(20, 0, 0); // Overnight period for user starts at 8PM.
@@ -162,9 +137,62 @@ namespace Diabetes.User
             MaxHoursOvernightWithoutAction = 8.5; // Ensure an overnight period without actions taken of  8.5 or less to try to stay within an overnight reading and avoid the dawn effect.
         }
 
-        public void ValidateConfigurationObject()
+        public (bool, List<string>) ValidateConfigurationObjectPropertyRelationships()
         {
+            List<string> relationshipValidationErrors = new List<string>();
             
+            // Target isolation hours less than min isolation hours
+            if (TargetIsolationHours < MinIsolationHours)
+            {
+                relationshipValidationErrors.Add(item: string.Format(
+                    UserConfigurationErrorMessages.TargetIsolationHoursNotLessThanMinIsolationHours,
+                    MinIsolationHours,
+                    TargetIsolationHours
+                ));
+            }
+            
+            // Target isolation hours greater than max isolation hours
+            if (TargetIsolationHours > MaxIsolationHours)
+            {
+                relationshipValidationErrors.Add(item: string.Format(
+                    UserConfigurationErrorMessages.MaxIsolationHoursNotLessThanTargetIsolationHours,
+                    MaxIsolationHours,
+                    TargetIsolationHours
+                ));
+            }
+            
+            // Max isolation hours less than min isolation hours
+            if (MinIsolationHours > MaxIsolationHours)
+            {
+                relationshipValidationErrors.Add(item: string.Format(
+                    UserConfigurationErrorMessages.MaxIsolationHoursNotLessThanMinIsolationHours,
+                    MaxIsolationHours,
+                    MinIsolationHours
+                ));
+            }
+            
+            // Max overnight hours without action less than min overnight hours without action
+            if (MinHoursOvernightWithoutAction > MaxHoursOvernightWithoutAction)
+            {
+                relationshipValidationErrors.Add(item: string.Format(
+                    UserConfigurationErrorMessages.MaxHoursOvernightWithoutActionNotLessThanMinHoursOvernightWithoutAction,
+                    MaxHoursOvernightWithoutAction,
+                    MinHoursOvernightWithoutAction
+                ));
+            }
+
+            
+            // Populate errors list
+            if (relationshipValidationErrors.Count > 0)
+            {
+                foreach(string error in relationshipValidationErrors)
+                {
+                    Console.WriteLine(error);
+                }
+
+                return (false, relationshipValidationErrors);
+            }
+            return (true, null);
         }
     }
 }
