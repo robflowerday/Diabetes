@@ -54,7 +54,6 @@
         <Compile Include="MetricRecalculationStrategies\RecalculateLongActingOnly.cs" />
         <Compile Include="EventData.cs" />
         <Compile Include="Program.cs"/>
-        <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="User\FileIO\FileIO.cs" />
         <Compile Include="User\FileIO\IFileIO.cs" />
         <Compile Include="User\FileIO\MockFileIO.cs" />
