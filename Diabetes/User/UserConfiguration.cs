@@ -6,14 +6,134 @@ namespace Diabetes.User
     public class UserConfiguration
     {
         // User metrics
-        public double InsulinSensitivityFactor { get; set; } // How many units does blood glucose drop for every unit of insulin administered.
-        public double CarbToInsulinRatio { get; set; } // How many carbs can 1 unit of insulin counteract.
-        public int LongActingInsulinDoesRecommendation { get; set; } // How many units of long acting insulin should be administered daily.
+        private double _insulinSensitivityFactor;
+        public double InsulinSensitivityFactor // How many units does blood glucose drop for every unit of insulin administered.
+        {
+            get { return _insulinSensitivityFactor; }
+            set
+            {
+                if (value > 0)
+                    _insulinSensitivityFactor = value;
+                else
+                {
+                    throw new ArgumentException(
+                        message:
+                        $"Invalid Insulin Sensitivity Factor value given: {value}. Insulin Sensitivity Factor must be greater than 0.");
+                }
+            }
+        }
+
+        private double _carbsToInsulinRation;
+        public double CarbToInsulinRatio // How many carbs can 1 unit of insulin counteract.
+        {
+            get { return _carbsToInsulinRation; }
+            set
+            {
+                if (value > 0)
+                    _carbsToInsulinRation = value;
+                else
+                {
+                    throw new ArgumentException(
+                        message:
+                        $"Invalid Carbs to Insulin Ratio value given: {value}. Carbs to Insulin Ratio must be greater than 0.");
+                }
+            }
+        }
+
+        private int _longActingInsulinDoseRecommendation;
+
+        public int LongActingInsulinDoesRecommendation // How many units of long acting insulin should be administered daily.
+        {
+            get { return _longActingInsulinDoseRecommendation; }
+            set
+            {
+                if (value >= 0)
+                    _longActingInsulinDoseRecommendation = value;
+                else
+                {
+                    throw new ArgumentException(
+                        message:
+                        $"Invalid Long Acting Insulin Does Recommendation value given: {value}. Long Acting Insulin Does Recommendation must be 0 or greater.");
+                }
+            }
+        }
         
         // Action free isolation period
-        public double TargetIsolationHours { get; set; }
-        public double MinIsolationHours { get; set; }
-        public double MaxIsolationHours { get; set; }
+        private double _targetIsolationHours;
+        public double TargetIsolationHours
+        {
+            get { return _targetIsolationHours; }
+            set
+            {
+                if (value >= 0)
+                    if (_minIsolationHours > value)
+                        throw new ArgumentException(
+                            "Target Isolation Hours must be greater than or equal to minimum target isolation Hours.");
+                    else if (_maxIsolationHours < value)
+                        throw new ArgumentException(
+                            "Target Isolation Hours must be less than or equal to maximum target isolation Hours.");
+                    else
+                    {
+                        _targetIsolationHours = value;
+                    }
+                else
+                {
+                    throw new ArgumentException(
+                        message:
+                        $"Invalid Target Isolation Hours value given: {value}. Target Isolation Hours must be 0 or greater.");
+                }
+            }
+        }
+
+        private double _minIsolationHours;
+        public double MinIsolationHours
+        {
+            get { return _minIsolationHours; }
+            set
+            {
+                if (value >= 0)
+                    if (_targetIsolationHours == null)
+                        _minIsolationHours = value;
+                    else if (_targetIsolationHours < value)
+                        throw new ArgumentException(
+                            "Target Isolation Hours must be greater than or equal to minimum target isolation Hours.");
+                    else
+                    {
+                        _minIsolationHours = value;
+                    }
+                else
+                {
+                    throw new ArgumentException(
+                        message:
+                        $"Invalid Minimum Isolation Hours value given: {value}. Minimum Isolation Hours must be 0 or greater.");
+                }
+            }
+        }
+
+        private double _maxIsolationHours;
+        public double MaxIsolationHours
+        {
+            get { return _maxIsolationHours; }
+            set
+            {
+                if (value >= 0)
+                    if (_targetIsolationHours == null)
+                        _minIsolationHours = value;
+                    else if (_targetIsolationHours > value)
+                        throw new ArgumentException(
+                            "Target Isolation Hours must be less than or equal to maximum target isolation Hours.");
+                    else
+                    {
+                        _maxIsolationHours = value;
+                    }
+                else
+                {
+                    throw new ArgumentException(
+                        message:
+                        $"Invalid Maximum Isolation Hours value given: {value}. Maximum Isolation Hours must be 0 or greater.");
+                }
+            }
+        }
         
         // Long acting insulin recalculation config variables
         public TimeSpan OvernightStartTime { get; set; } // Start time of an overnight period for the user.

@@ -14,7 +14,7 @@ namespace Diabetes.User
         private string _userConfigurationFilePath;
         // private UserConfiguration _userConfigurationObject;
 
-        public UserConfigurationHandler(string userConfigurationFilePath, IFileIO fileIO)
+        public UsecdrConfigurationHandler(string userConfigurationFilePath, IFileIO fileIO)
         {
             _fileIO = fileIO;
             _userConfigurationFilePath = userConfigurationFilePath;

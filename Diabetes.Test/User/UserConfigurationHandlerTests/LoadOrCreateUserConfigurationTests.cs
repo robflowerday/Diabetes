@@ -1,4 +1,6 @@
 using System;
+
+using Newtonsoft.Json;
 using Moq;
 using NUnit.Framework;
 
@@ -83,6 +85,41 @@ namespace Diabetes.Test.User.UserConfigurationHandlerTests
             Assert.AreEqual(expected: new TimeSpan(21, 40, 30), actual: userConfiguration.OvernightEndTime);
             Assert.AreEqual(expected: 6.9, actual: userConfiguration.MinHoursOvernightWithoutAction);
             Assert.AreEqual(expected: 9.9, actual: userConfiguration.MaxHoursOvernightWithoutAction);
+        }
+
+        [Test]
+        [TestCase(@"{""InsulinSensitivityFactor"": -2.0}")]
+        [TestCase(@"{""CarbToInsulinRatio"": -2.0}")]
+        [TestCase(@"{""LongActingInsulinDoesRecommendation"": -2}")]
+        [TestCase(@"{""TargetIsolationHours"": -2.0}")]
+        [TestCase(@"{""MinIsolationHours"": -2.0}")]
+        [TestCase(@"{""MaxIsolationHours"": -2.0}")]
+        public void LoadOrCreateUserConfiguration_FileExistsInvalidNegativeNumber_ThrowsError(
+            string jsonString)
+        {
+            // Arrange
+            // Set up Mock objects return values
+            _fileIOMock.Setup(f => f.Exists("fakePath.json")).Returns(true);
+            _fileIOMock.Setup(f => f.ReadAllText("fakePath.json")).Returns(jsonString);
+            
+            // Act + Assert
+            Assert.Throws<ArgumentException>(() => _userConfigurationHandler.LoadOrCreateUserConfiguration());
+        }
+
+        [Test]
+        [TestCase(@"{""InsulinSensitivityFactor"": ""invalid-string-value""}")]
+        [TestCase(@"{""CarbToInsulinRatio"": false}")]
+        [TestCase(@"{""LongActingInsulinDoesRecommendation"": 2.1}")]
+        public void LoadOrCreateUserConfiguration_FileExistsInvalidType_ThrowsError(
+            string jsonString)
+        {
+            // Arrange
+            // Set up Mock objects return values
+            _fileIOMock.Setup(f => f.Exists("fakePath.json")).Returns(true);
+            _fileIOMock.Setup(f => f.ReadAllText("fakePath.json")).Returns(jsonString);
+            
+            // Act + Assert
+            Assert.Throws<JsonReaderException>(() => _userConfigurationHandler.LoadOrCreateUserConfiguration());
         }
     }
 }
