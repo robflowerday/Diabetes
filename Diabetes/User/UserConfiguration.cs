@@ -1,5 +1,4 @@
 using System;
-using Diabetes.User.UserConfigurationValidationAttributes;
 
 
 namespace Diabetes.User
@@ -7,13 +6,8 @@ namespace Diabetes.User
     public class UserConfiguration
     {
         // User metrics
-        [NonNegative]
         public double InsulinSensitivityFactor { get; set; } // How many units does blood glucose drop for every unit of insulin administered.
-        
-        [NonNegative]
         public double CarbToInsulinRatio { get; set; } // How many carbs can 1 unit of insulin counteract.
-        
-        [NonNegative]
         public int LongActingInsulinDoesRecommendation { get; set; } // How many units of long acting insulin should be administered daily.
         
         // Action free isolation period
