@@ -60,8 +60,6 @@
         <Compile Include="User\FileIO\MockFileIO.cs" />
         <Compile Include="User\UserConfiguration.cs" />
         <Compile Include="User\UserConfigurationHandler.cs" />
-        <Compile Include="User\UserConfigurationValidationAttributes\AttributeTestClass.cs" />
-        <Compile Include="User\UserConfigurationValidationAttributes\NonNegative.cs" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="EventHelperFunctions\EventCalculationFunctions\" />
