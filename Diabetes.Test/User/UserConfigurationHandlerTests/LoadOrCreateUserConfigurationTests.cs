@@ -40,13 +40,13 @@ namespace Diabetes.Test.User.UserConfigurationHandlerTests
             Assert.AreEqual(expected: 2.0, actual: userConfiguration.InsulinSensitivityFactor);
             Assert.AreEqual(expected: 15.0, actual: userConfiguration.CarbToInsulinRatio);
             Assert.AreEqual(expected: 25, actual: userConfiguration.LongActingInsulinDoesRecommendation);
-            Assert.AreEqual(expected: 4.0, userConfiguration.TargetIsolationHours);
-            Assert.AreEqual(expected: 0.0, userConfiguration.MinIsolationHours);
-            Assert.AreEqual(expected: 0.0, userConfiguration.MaxIsolationHours);
-            Assert.AreEqual(expected: new TimeSpan(20, 0, 0), userConfiguration.OvernightStartTime);
-            Assert.AreEqual(expected: new TimeSpan(6, 0, 0), userConfiguration.OvernightEndTime);
-            Assert.AreEqual(expected: 7.5, userConfiguration.MinHoursOvernightWithoutAction);
-            Assert.AreEqual(expected: 8.5, userConfiguration.MaxHoursOvernightWithoutAction);
+            Assert.AreEqual(expected: 4.0, actual: userConfiguration.TargetIsolationHours);
+            Assert.AreEqual(expected: 0.0, actual: userConfiguration.MinIsolationHours);
+            Assert.AreEqual(expected: 0.0, actual: userConfiguration.MaxIsolationHours);
+            Assert.AreEqual(expected: new TimeSpan(20, 0, 0), actual: userConfiguration.OvernightStartTime);
+            Assert.AreEqual(expected: new TimeSpan(6, 0, 0), actual: userConfiguration.OvernightEndTime);
+            Assert.AreEqual(expected: 7.5, actual: userConfiguration.MinHoursOvernightWithoutAction);
+            Assert.AreEqual(expected: 8.5, actual: userConfiguration.MaxHoursOvernightWithoutAction);
         }
         
         [Test]
@@ -76,13 +76,13 @@ namespace Diabetes.Test.User.UserConfigurationHandlerTests
             Assert.AreEqual(expected: 2.0, actual: userConfiguration.InsulinSensitivityFactor);
             Assert.AreEqual(expected: 15.0, actual: userConfiguration.CarbToInsulinRatio);
             Assert.AreEqual(expected: 25, actual: userConfiguration.LongActingInsulinDoesRecommendation);
-            Assert.AreEqual(expected: 6.7, userConfiguration.TargetIsolationHours);
-            Assert.AreEqual(expected: 4.2, userConfiguration.MinIsolationHours);
-            Assert.AreEqual(expected: 5.9, userConfiguration.MaxIsolationHours);
-            Assert.AreEqual(expected: new TimeSpan(19, 30, 12), userConfiguration.OvernightStartTime);
-            Assert.AreEqual(expected: new TimeSpan(21, 40, 30), userConfiguration.OvernightEndTime);
-            Assert.AreEqual(expected: 6.9, userConfiguration.MinHoursOvernightWithoutAction);
-            Assert.AreEqual(expected: 9.9, userConfiguration.MaxHoursOvernightWithoutAction);
+            Assert.AreEqual(expected: 6.7, actual: userConfiguration.TargetIsolationHours);
+            Assert.AreEqual(expected: 4.2, actual: userConfiguration.MinIsolationHours);
+            Assert.AreEqual(expected: 5.9, actual: userConfiguration.MaxIsolationHours);
+            Assert.AreEqual(expected: new TimeSpan(19, 30, 12), actual: userConfiguration.OvernightStartTime);
+            Assert.AreEqual(expected: new TimeSpan(21, 40, 30), actual: userConfiguration.OvernightEndTime);
+            Assert.AreEqual(expected: 6.9, actual: userConfiguration.MinHoursOvernightWithoutAction);
+            Assert.AreEqual(expected: 9.9, actual: userConfiguration.MaxHoursOvernightWithoutAction);
         }
     }
 }
