@@ -50,7 +50,6 @@
     <ItemGroup>
         <Compile Include="DiabetesManagement.cs" />
         <Compile Include="EventHelperFunctions\EventPeriodFilterFunctions.cs" />
-        <Compile Include="FileIOTestProgram.cs" />
         <Compile Include="MetricRecalculationStrategies\IDynamicallyRecalculateMetricsStrategy.cs" />
         <Compile Include="MetricRecalculationStrategies\RecalculateLongActingOnly.cs" />
         <Compile Include="EventData.cs" />
