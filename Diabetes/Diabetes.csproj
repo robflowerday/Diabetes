@@ -55,13 +55,11 @@
         <Compile Include="EventData.cs" />
         <Compile Include="Program.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="User\FileIO.cs" />
         <Compile Include="User\FileIO\FileIO.cs" />
         <Compile Include="User\FileIO\IFileIO.cs" />
         <Compile Include="User\FileIO\MockFileIO.cs" />
         <Compile Include="User\UserConfiguration.cs" />
         <Compile Include="User\UserConfigurationHandler.cs" />
-        <Compile Include="User\UserConfigurationHandler2.cs" />
         <Compile Include="User\UserConfigurationValidationAttributes\AttributeTestClass.cs" />
         <Compile Include="User\UserConfigurationValidationAttributes\NonNegative.cs" />
     </ItemGroup>
