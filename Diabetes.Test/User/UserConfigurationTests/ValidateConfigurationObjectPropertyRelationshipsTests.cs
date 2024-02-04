@@ -41,11 +41,10 @@ namespace Diabetes.Test.User.UserConfigurationTests
             
             
             // Act
-            (bool, List<string>) userConfigPropertyRelationshipValidationResult = userConfiguration.ValidateConfigurationObjectPropertyRelationships();
+            bool userConfigPropertyRelationshipValidationResult = userConfiguration.ValidateConfigurationObjectPropertyRelationships();
             
             // Assert
-            Assert.AreEqual(expected: true, actual: userConfigPropertyRelationshipValidationResult.Item1);
-            Assert.IsNull(anObject: userConfigPropertyRelationshipValidationResult.Item2);
+            Assert.AreEqual(expected: true, actual: userConfigPropertyRelationshipValidationResult);
         }
 
         [Test]
@@ -72,52 +71,52 @@ namespace Diabetes.Test.User.UserConfigurationTests
             
             
             // Act
-            (bool, List<string>) userConfigPropertyRelationshipValidationResult = userConfiguration.ValidateConfigurationObjectPropertyRelationships();
+            bool userConfigPropertyRelationshipValidationResult = userConfiguration.ValidateConfigurationObjectPropertyRelationships();
             
             // Assert
-            Assert.AreEqual(expected: false, actual: userConfigPropertyRelationshipValidationResult.Item1);
-            Assert.IsNotNull(anObject: userConfigPropertyRelationshipValidationResult.Item2);
-            Assert.AreEqual(expected: 4, actual: userConfigPropertyRelationshipValidationResult.Item2.Count);
+            Assert.AreEqual(expected: false, actual: userConfigPropertyRelationshipValidationResult);
+            // Assert.IsNotNull(anObject: userConfigPropertyRelationshipValidationResult.Item2);
+            // Assert.AreEqual(expected: 4, actual: userConfigPropertyRelationshipValidationResult.Item2.Count);
             
-            string targetIsolationHoursNotLessThanMinIsolationHoursErrorMsg = string.Format(
-                UserConfigurationErrorMessages.TargetIsolationHoursNotLessThanMinIsolationHours,
-                userConfiguration.MinIsolationHours,
-                userConfiguration.TargetIsolationHours
-            );
-            Assert.Contains(
-                expected: targetIsolationHoursNotLessThanMinIsolationHoursErrorMsg,
-                actual: userConfigPropertyRelationshipValidationResult.Item2
-            );
-            
-            string maxIsolationHoursNotLessThanTargetIsolationHoursErrorMsg = string.Format(
-                UserConfigurationErrorMessages.MaxIsolationHoursNotLessThanTargetIsolationHours,
-                userConfiguration.MaxIsolationHours,
-                userConfiguration.TargetIsolationHours
-            );
-            Assert.Contains(
-                expected: maxIsolationHoursNotLessThanTargetIsolationHoursErrorMsg,
-                actual: userConfigPropertyRelationshipValidationResult.Item2
-            );
-            
-            string maxIsolationHoursNotLessThanMinIsolationHoursErrorMsg = string.Format(
-                UserConfigurationErrorMessages.MaxIsolationHoursNotLessThanMinIsolationHours,
-                userConfiguration.MaxIsolationHours,
-                userConfiguration.MinIsolationHours
-            );
-            Assert.Contains(
-                expected: maxIsolationHoursNotLessThanMinIsolationHoursErrorMsg,
-                actual: userConfigPropertyRelationshipValidationResult.Item2
-            );
-            
-            string maxHoursOvernightWithoutActionNotLessThanMinHoursOvernightWithoutActionErrorMsg = string.Format(
-                UserConfigurationErrorMessages.MaxHoursOvernightWithoutActionNotLessThanMinHoursOvernightWithoutAction,
-                userConfiguration.MaxHoursOvernightWithoutAction,
-                userConfiguration.MinHoursOvernightWithoutAction
-            );
-            Assert.Contains(
-                expected: maxHoursOvernightWithoutActionNotLessThanMinHoursOvernightWithoutActionErrorMsg,
-                actual: userConfigPropertyRelationshipValidationResult.Item2
-            );
+            // string targetIsolationHoursNotLessThanMinIsolationHoursErrorMsg = string.Format(
+            //     UserConfigurationErrorMessages.TargetIsolationHoursNotLessThanMinIsolationHours,
+            //     userConfiguration.MinIsolationHours,
+            //     userConfiguration.TargetIsolationHours
+            // );
+            // Assert.Contains(
+            //     expected: targetIsolationHoursNotLessThanMinIsolationHoursErrorMsg,
+            //     actual: userConfigPropertyRelationshipValidationResult.Item2
+            // );
+            //
+            // string maxIsolationHoursNotLessThanTargetIsolationHoursErrorMsg = string.Format(
+            //     UserConfigurationErrorMessages.MaxIsolationHoursNotLessThanTargetIsolationHours,
+            //     userConfiguration.MaxIsolationHours,
+            //     userConfiguration.TargetIsolationHours
+            // );
+            // Assert.Contains(
+            //     expected: maxIsolationHoursNotLessThanTargetIsolationHoursErrorMsg,
+            //     actual: userConfigPropertyRelationshipValidationResult.Item2
+            // );
+            //
+            // string maxIsolationHoursNotLessThanMinIsolationHoursErrorMsg = string.Format(
+            //     UserConfigurationErrorMessages.MaxIsolationHoursNotLessThanMinIsolationHours,
+            //     userConfiguration.MaxIsolationHours,
+            //     userConfiguration.MinIsolationHours
+            // );
+            // Assert.Contains(
+            //     expected: maxIsolationHoursNotLessThanMinIsolationHoursErrorMsg,
+            //     actual: userConfigPropertyRelationshipValidationResult.Item2
+            // );
+            //
+            // string maxHoursOvernightWithoutActionNotLessThanMinHoursOvernightWithoutActionErrorMsg = string.Format(
+            //     UserConfigurationErrorMessages.MaxHoursOvernightWithoutActionNotLessThanMinHoursOvernightWithoutAction,
+            //     userConfiguration.MaxHoursOvernightWithoutAction,
+            //     userConfiguration.MinHoursOvernightWithoutAction
+            // );
+            // Assert.Contains(
+            //     expected: maxHoursOvernightWithoutActionNotLessThanMinHoursOvernightWithoutActionErrorMsg,
+            //     actual: userConfigPropertyRelationshipValidationResult.Item2
+            // );
         }
     }
 }

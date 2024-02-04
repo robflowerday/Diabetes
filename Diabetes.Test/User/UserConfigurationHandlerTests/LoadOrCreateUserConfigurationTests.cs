@@ -36,8 +36,7 @@ namespace Diabetes.Test.User.UserConfigurationHandlerTests
             }");
             
             // Act
-            var (userConfiguration, existingFileErrors, defaultFileErrors) =
-                _userConfigurationHandler.LoadOrCreateUserConfiguration();
+            UserConfiguration userConfiguration = _userConfigurationHandler.LoadOrCreateUserConfiguration();
             
             // Assert
             Assert.IsNotNull(anObject: userConfiguration);
@@ -51,8 +50,8 @@ namespace Diabetes.Test.User.UserConfigurationHandlerTests
             Assert.AreEqual(expected: new TimeSpan(6, 0, 0), actual: userConfiguration.OvernightEndTime);
             Assert.AreEqual(expected: 7.5, actual: userConfiguration.MinHoursOvernightWithoutAction);
             Assert.AreEqual(expected: 8.5, actual: userConfiguration.MaxHoursOvernightWithoutAction);
-            Assert.AreEqual(expected: 0, actual: existingFileErrors.Count);
-            Assert.AreEqual(expected: 0, actual: defaultFileErrors.Count);
+            // Assert.AreEqual(expected: 0, actual: existingFileErrors.Count);
+            // Assert.AreEqual(expected: 0, actual: defaultFileErrors.Count);
         }
         
         [Test]
@@ -75,7 +74,7 @@ namespace Diabetes.Test.User.UserConfigurationHandlerTests
             }");
             
             // Act
-            var (userConfiguration, existingFileErrors, defaultFileErrors) = _userConfigurationHandler.LoadOrCreateUserConfiguration();
+            UserConfiguration userConfiguration = _userConfigurationHandler.LoadOrCreateUserConfiguration();
             
             // Assert
             Assert.IsNotNull(anObject: userConfiguration);
@@ -89,8 +88,8 @@ namespace Diabetes.Test.User.UserConfigurationHandlerTests
             Assert.AreEqual(expected: new TimeSpan(21, 40, 30), actual: userConfiguration.OvernightEndTime);
             Assert.AreEqual(expected: 6.9, actual: userConfiguration.MinHoursOvernightWithoutAction);
             Assert.AreEqual(expected: 9.9, actual: userConfiguration.MaxHoursOvernightWithoutAction);
-            Assert.AreEqual(expected: 0, actual: existingFileErrors.Count);
-            Assert.AreEqual(expected: 0, actual: defaultFileErrors.Count);
+            // Assert.AreEqual(expected: 0, actual: existingFileErrors.Count);
+            // Assert.AreEqual(expected: 0, actual: defaultFileErrors.Count);
         }
 
         [Test]
