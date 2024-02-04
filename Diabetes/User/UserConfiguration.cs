@@ -190,7 +190,8 @@ namespace Diabetes.User
                     Console.WriteLine(error);
                 }
 
-                return (false, relationshipValidationErrors);
+                throw new Exception($"One or more relationship validation errors exist:\n{relationshipValidationErrors}");
+                // return (false, relationshipValidationErrors);
             }
             return (true, null);
         }
