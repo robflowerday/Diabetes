@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+
 using Newtonsoft.Json;
 using Moq;
 using NUnit.Framework;
@@ -10,7 +10,6 @@ using Diabetes.User.FileIO;
 
 namespace Diabetes.Test.User.UserConfigurationHandlerTests
 {
-    [TestFixture]
     public class LoadOrCreateUserConfigurationTests
     {
         private UserConfigurationHandler _userConfigurationHandler;
@@ -50,8 +49,6 @@ namespace Diabetes.Test.User.UserConfigurationHandlerTests
             Assert.AreEqual(expected: new TimeSpan(6, 0, 0), actual: userConfiguration.OvernightEndTime);
             Assert.AreEqual(expected: 7.5, actual: userConfiguration.MinHoursOvernightWithoutAction);
             Assert.AreEqual(expected: 8.5, actual: userConfiguration.MaxHoursOvernightWithoutAction);
-            // Assert.AreEqual(expected: 0, actual: existingFileErrors.Count);
-            // Assert.AreEqual(expected: 0, actual: defaultFileErrors.Count);
         }
         
         [Test]
@@ -66,7 +63,7 @@ namespace Diabetes.Test.User.UserConfigurationHandlerTests
                 ""LongActingInsulinDoesRecommendation"": 25,
                 ""TargetIsolationHours"": 6.7,
                 ""MinIsolationHours"": 4.2,
-                ""MaxIsolationHours"": 8.0,
+                ""MaxIsolationHours"": 5.9,
                 ""OvernightStartTime"": ""19:30:12"",
                 ""OvernightEndTime"": ""21:40:30"",
                 ""MinHoursOvernightWithoutAction"": 6.9,
@@ -88,8 +85,6 @@ namespace Diabetes.Test.User.UserConfigurationHandlerTests
             Assert.AreEqual(expected: new TimeSpan(21, 40, 30), actual: userConfiguration.OvernightEndTime);
             Assert.AreEqual(expected: 6.9, actual: userConfiguration.MinHoursOvernightWithoutAction);
             Assert.AreEqual(expected: 9.9, actual: userConfiguration.MaxHoursOvernightWithoutAction);
-            // Assert.AreEqual(expected: 0, actual: existingFileErrors.Count);
-            // Assert.AreEqual(expected: 0, actual: defaultFileErrors.Count);
         }
 
         [Test]

@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
-
-using Diabetes.ExternalStorage.DataModels;
-
-
-namespace Diabetes.EventHelperFunctions
-{
-    public class EventPeriodFilterFunctions
-    {
-        public List<EventData> GetEventsInPeriod(List<EventData> inputEvents, DateTime periodStart, DateTime periodEnd)
-        {
-            return null;
-        }
-    }
-}
+// using System.Collections.Generic;
+//
+//
+// namespace Diabetes.EventHelperFunctions
+// {
+//     public static class EventPeriodFilterFunctions
+//     {
+//         public static List<EventData> 
+//     }
+// }

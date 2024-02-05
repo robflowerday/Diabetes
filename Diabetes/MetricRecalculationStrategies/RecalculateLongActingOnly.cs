@@ -1,26 +1,26 @@
 // using System;
 // using System.Collections.Generic;
-// using Diabetes.ExternalStorage;
-// using Diabetes.ExternalStorage.DataModels;
+//
+// using Diabetes.User;
 //
 //
 // namespace Diabetes.MetricRecalculationStrategies
 // {
-//     public class RecalculateLongActingOnlyStrategy : IRecalculateMetricsStrategy<UserConfiguration>
+//     public class RecalculateLongActingOnlyStrategy : IDynamicallyRecalculateMetricsStrategy
 //     {
-//         public void RecalculateMetricsStrategy(List<EventData> events,
-//             DataIOHandler<UserConfiguration> userConfigurationDataIoHandler)
+//         public void DynamicallyRecalculateMetricsStrategy(List<EventData> events,
+//             UserConfigurationHandler userConfigurationHandler)
 //         {
 //             // Load user configuration
-//             UserConfiguration userConfigurationDataModelInstance = userConfigurationDataIoHandler.LoadOrCreateDataModelInstance();
-//             TimeSpan overnightPeriodStart = userConfigurationDataModelInstance.OvernightStartTime;
-//             TimeSpan overnightPeriodEnd = userConfigurationDataModelInstance.OvernightEndTime;
-//             double minHoursWithoutAction = userConfigurationDataModelInstance.MinHoursOvernightWithoutAction;
-//             double maxHoursWithoutAction = userConfigurationDataModelInstance.MaxHoursOvernightWithoutAction;
-//             double targetHoursAfterFirstEvent = userConfigurationDataModelInstance.TargetIsolationHours;
-//             double minHoursAfterFirstEvent = userConfigurationDataModelInstance.MinIsolationHours;
-//             double maxHoursAfterFirstEvent = userConfigurationDataModelInstance.MaxIsolationHours;
-//             int longActingInsulinDoseRecommendation = userConfigurationDataModelInstance.LongActingInsulinDoesRecommendation;
+//             UserConfiguration userConfigurationObject = userConfigurationHandler.LoadOrCreateUserConfiguration();
+//             TimeSpan overnightPeriodStart = userConfigurationObject.OvernightStartTime;
+//             TimeSpan overnightPeriodEnd = userConfigurationObject.OvernightEndTime;
+//             double minHoursWithoutAction = userConfigurationObject.MinHoursOvernightWithoutAction;
+//             double maxHoursWithoutAction = userConfigurationObject.MaxHoursOvernightWithoutAction;
+//             double targetHoursAfterFirstEvent = userConfigurationObject.TargetIsolationHours;
+//             double minHoursAfterFirstEvent = userConfigurationObject.MinIsolationHours;
+//             double maxHoursAfterFirstEvent = userConfigurationObject.MaxIsolationHours;
+//             int longActingInsulinDoseRecommendation = userConfigurationObject.LongActingInsulinDoesRecommendation;
 //             
 //             // Filter events in applicable overnight period
 //             List<EventData> overnightEvents = EventHelperFunctions.EventPeriodFilterFunctions.GetEventsInPeriod(
@@ -63,8 +63,8 @@
 //                     $"Long acting insulin dosage recommendation changed by: {changeInBloodGlucose} to {recommendedDoseIncrement} units daily.");
 //             
 //             // Save new long acting dose recommendation to file
-//             userConfigurationDataModelInstance.LongActingInsulinDoesRecommendation = longActingInsulinDoseRecommendation;
-//             userConfigurationDataIoHandler.SaveDataModelInstanceToFile(userConfigurationDataModelInstance);
+//             userConfigurationObject.LongActingInsulinDoesRecommendation = longActingInsulinDoseRecommendation;
+//             userConfigurationHandler.SaveUserConfiguration(userConfigurationObject);
 //         }
 //     }
 // }
