@@ -50,19 +50,19 @@
     <ItemGroup>
         <Compile Include="DiabetesManagement.cs" />
         <Compile Include="EventHelperFunctions\EventPeriodFilterFunctions.cs" />
-        <Compile Include="MetricRecalculationStrategies\IDynamicallyRecalculateMetricsStrategy.cs" />
+        <Compile Include="ExternalStorage\DataModels\EventData.cs" />
+        <Compile Include="ExternalStorage\DataModels\IDataModel.cs" />
+        <Compile Include="ExternalStorage\DataModels\UserConfiguration.cs" />
+        <Compile Include="ExternalStorage\ErrorMessages\GeneralErrorMessages.cs" />
+        <Compile Include="ExternalStorage\ErrorMessages\UserConfigurationErrorMessages.cs" />
+        <Compile Include="ExternalStorage\FileIO\FileIO.cs" />
+        <Compile Include="ExternalStorage\FileIO\IFileIO.cs" />
+        <Compile Include="ExternalStorage\FileIO\MockFileIO.cs" />
+        <Compile Include="ExternalStorage\DataIOHandler.cs" />
+        <Compile Include="MetricRecalculationStrategies\IRecalculateMetricsStrategy.cs" />
         <Compile Include="MetricRecalculationStrategies\RecalculateLongActingOnly.cs" />
-        <Compile Include="EventData.cs" />
-        <Compile Include="Program.cs"/>
-        <Compile Include="User\FileIO\FileIO.cs" />
-        <Compile Include="User\FileIO\IFileIO.cs" />
-        <Compile Include="User\FileIO\MockFileIO.cs" />
-        <Compile Include="User\UserConfiguration.cs" />
-        <Compile Include="User\UserConfigurationHandler.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="EventHelperFunctions\EventCalculationFunctions\" />
-      <Folder Include="EventHelperFunctions\EventPeriodFilterFunctions\" />
+        <Compile Include="Program.cs" />
+        <Compile Include="Program2.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
