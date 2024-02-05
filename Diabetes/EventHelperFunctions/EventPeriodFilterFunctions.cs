@@ -10,7 +10,7 @@ namespace Diabetes.EventHelperFunctions
     {
         public List<EventData> GetEventsInPeriod(List<EventData> inputEvents, DateTime periodStart, DateTime periodEnd)
         {
-            
+            return null;
         }
     }
 }

@@ -8,7 +8,7 @@
 // {
 //     public class Program2
 //     {
-//         public static void Main2(string[] args)
+//         public static void MainUserConfogValidationResult(string[] args)
 //         {
 //             // Setup
 //             // Revert to default object instantiation on 04-02-2024

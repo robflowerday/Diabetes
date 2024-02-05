@@ -62,7 +62,8 @@
         <Compile Include="MetricRecalculationStrategies\IRecalculateMetricsStrategy.cs" />
         <Compile Include="MetricRecalculationStrategies\RecalculateLongActingOnly.cs" />
         <Compile Include="Program.cs" />
-        <Compile Include="Program2.cs" />
+        <Compile Include="ProgramUserConfigValidationResult.cs" />
+        <Compile Include="ProgramEventDataList.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />

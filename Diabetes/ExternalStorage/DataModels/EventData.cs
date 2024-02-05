@@ -15,7 +15,7 @@ namespace Diabetes.ExternalStorage.DataModels
 
         public void ValidateDataModelPropertyRelationships()
         {
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
     }
 }
