@@ -20,11 +20,11 @@ namespace Diabetes
         // private double _cir = 15;
         // private double _longActingInsulinDoseRecommendation = 20;
 
-        public DiabetesManagement(DataIOHandler<UserConfiguration> userConfigurationDataIoHandler,
+        public DiabetesManagement(DataIOHandler<UserConfiguration> userConfigurationDataIOHandler,
             IRecalculateMetricsStrategy<UserConfiguration> recalculateMetricsStrategy)
         {
             _recalculateMetricsStrategy = recalculateMetricsStrategy;
-            _userConfigurationDataIOHandler = userConfigurationDataIoHandler;
+            _userConfigurationDataIOHandler = userConfigurationDataIOHandler;
         }
 
         public void AddEvent(EventData data, bool displayLogs = false)
@@ -61,9 +61,9 @@ namespace Diabetes
         //     }
         // }
 
-        public double CalculateMealBolus(int carbs)
-        {
-            return carbs / _cir;
-        }
+        // public double CalculateMealBolus(int carbs)
+        // {
+        //     return carbs / _cir;
+        // }
     }
 }

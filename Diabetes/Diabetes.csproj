@@ -49,7 +49,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="DiabetesManagement.cs" />
-        <Compile Include="EventHelperFunctions\EventPeriodFilterFunctions.cs" />
+        <Compile Include="DoseIncrementHelperFunctions\CalculateLongActingDosageIncrement.cs" />
         <Compile Include="ExternalStorage\DataModels\EventData.cs" />
         <Compile Include="ExternalStorage\DataModels\IDataModel.cs" />
         <Compile Include="ExternalStorage\DataModels\UserConfiguration.cs" />
@@ -59,8 +59,11 @@
         <Compile Include="ExternalStorage\FileIO\IFileIO.cs" />
         <Compile Include="ExternalStorage\FileIO\MockFileIO.cs" />
         <Compile Include="ExternalStorage\DataIOHandler.cs" />
+        <Compile Include="HelperFunctions\DateTimeHelperFunctions.cs" />
+        <Compile Include="HelperFunctions\EventHelperFunctions\EventPeriodFilterFunctions.cs" />
+        <Compile Include="HelperFunctions\EventHelperFunctions\EventPropertyFilterFunctions.cs" />
         <Compile Include="MetricRecalculationStrategies\IRecalculateMetricsStrategy.cs" />
-        <Compile Include="MetricRecalculationStrategies\RecalculateLongActingOnly.cs" />
+        <Compile Include="MetricRecalculationStrategies\RecalculateLongActingOnlyLastNightReadings.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Program2.cs" />
     </ItemGroup>
