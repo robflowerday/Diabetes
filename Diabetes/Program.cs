@@ -9,9 +9,7 @@ namespace Diabetes
     {
         public static void Main(string[] args)
         {
-            // Instantiate App
-            // Instantiate user settings
-
+            // Instantiate user configuration settings variables
             string userConfigurationJsonFilePath = "/home/robert/temp/mynewjson.json";
             
             IFileIO fileIO = new FileIO();
@@ -20,9 +18,11 @@ namespace Diabetes
                 fileIO: fileIO
             );
 
+            // Instantiate initial metric recalculation strategy
             IRecalculateMetricsStrategy<UserConfiguration> recalculateMetricsStrategy =
-                new RecalculateLongActingOnlyStrategy();
+                new RecalculateLongActingOnlyStrategyLastNightReadings();
             
+            // Instantiate diabetes manager
             DiabetesManagement diabetesManagement = new DiabetesManagement(
                 userConfigurationDataIOHandler: userConfigurationDataIOHandler,
                 recalculateMetricsStrategy: recalculateMetricsStrategy
