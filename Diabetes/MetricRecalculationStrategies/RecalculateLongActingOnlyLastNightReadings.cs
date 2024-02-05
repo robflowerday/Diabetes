@@ -28,17 +28,16 @@ namespace Diabetes.MetricRecalculationStrategies
             int longActingInsulinDoseRecommendation = userConfigurationDataModelInstance.LongActingInsulinDoesRecommendation;
             
             // Filter events in applicable overnight period
-            DateTime overnightPeriodStartDateTime =
-                DateTimeHelperFunctions.GetMostRecentDateTime(timeSpanToConvert: overnightPeriodStartTime);
-            DateTime overnightPeriodEndDateTime =
-                DateTimeHelperFunctions.GetMostRecentDateTime(timeSpanToConvert: overnightPeriodEndTime);
+            var (sleepPeriodStartDateTime, sleepPeriodEndDateTime)=
+                    DateTimeHelperFunctions.GetSleepingPeriodStartAndEndDateTimes(
+                        sleepPeriodStartTimeSpan: overnightPeriodStartTime, sleepPeriodEndTimeSpan: overnightPeriodEndTime);
             List<EventData> overnightEvents = EventPeriodFilterFunctions.GetEventsInPeriod(
                 inputEvents: events,
-                periodStartDateTime: overnightPeriodStartDateTime, periodEndDateTime: overnightPeriodEndDateTime
+                periodStartDateTime: sleepPeriodStartDateTime, periodEndDateTime: sleepPeriodEndDateTime
             );
             
             // Log if there are no overnight events
-            Console.WriteLine($"No overnight events between {overnightPeriodStartDateTime} and {overnightPeriodEndDateTime} found.");
+            Console.WriteLine($"No overnight events between {sleepPeriodStartDateTime} and {sleepPeriodEndDateTime} found.");
             
             // Order events
             List<EventData> orderedOvernightEvents =

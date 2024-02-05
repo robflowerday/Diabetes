@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 using Newtonsoft.Json;
 
@@ -33,6 +34,7 @@ namespace Diabetes.ExternalStorage
                 // Convert JSON string to C# object
                 dataModelInstance = JsonConvert.DeserializeObject<TDataModel>(value: jsonString);
             }
+            
             // If file doesn't exist
             else
             {
@@ -47,10 +49,48 @@ namespace Diabetes.ExternalStorage
             return dataModelInstance;
         }
 
+        public List<TDataModel> LoadOrCreateDataModelInstanceList()
+        {
+            // Instantiate data model list object
+            List<TDataModel> dataModelListInstanceList;
+            
+            // Check if file exists
+            if (_fileIO.Exists(_jsonFilePath))
+            {
+                // Read JSON file
+                string jsonString = _fileIO.ReadAllText(_jsonFilePath);
+                
+                // Convert to data model list instance
+                dataModelListInstanceList = JsonConvert.DeserializeObject<List<TDataModel>>(jsonString);
+            }
+            
+            // If file doesn't exist, return an empty list instance
+            else
+            {
+                dataModelListInstanceList = new List<TDataModel>();
+            }
+            
+            // Validate data model property relationships
+            foreach (TDataModel dataModelInstance in dataModelListInstanceList)
+                dataModelInstance.ValidateDataModelPropertyRelationships();
+            
+            // If the data model instances are valid, return them
+            return dataModelListInstanceList;
+        }
+
         public void SaveDataModelInstanceToFile(TDataModel dataModelInstance)
         {
             // Convert data model instance to json string
             string jsonString = JsonConvert.SerializeObject(value: dataModelInstance, formatting: Formatting.Indented);
+            
+            // Write json string to file
+            _fileIO.WriteAllText(path: _jsonFilePath, contents: jsonString);
+        }
+
+        public void SaveDataModelInstanceListToFile(List<TDataModel> dataModelInstanceList)
+        {
+            // Convert data model instance to json string
+            string jsonString = JsonConvert.SerializeObject(value: dataModelInstanceList, formatting: Formatting.Indented);
             
             // Write json string to file
             _fileIO.WriteAllText(path: _jsonFilePath, contents: jsonString);
