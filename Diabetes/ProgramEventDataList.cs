@@ -22,6 +22,7 @@ namespace Diabetes
             eventDataListIOHandler.SaveDataModelInstanceListToFile(events);
             
             // File.WriteAllText(path: jsonFilePath, contents: "hello");
+            // redundant change
         }
     }
 }
