@@ -14,23 +14,34 @@ namespace Diabetes
         private List<string> _log = new List<string>();
         private IRecalculateMetricsStrategy<UserConfiguration> _recalculateMetricsStrategy;
         private DataIOHandler<UserConfiguration> _userConfigurationDataIOHandler;
+        private DataIOHandler<EventData> _eventDataIOHandler;
         
         // // Initialize metrics
         // private double _isf = 50;
         // private double _cir = 15;
         // private double _longActingInsulinDoseRecommendation = 20;
 
-        public DiabetesManagement(DataIOHandler<UserConfiguration> userConfigurationDataIOHandler,
-            IRecalculateMetricsStrategy<UserConfiguration> recalculateMetricsStrategy)
+        public DiabetesManagement(IRecalculateMetricsStrategy<UserConfiguration> recalculateMetricsStrategy,
+            DataIOHandler<UserConfiguration> userConfigurationDataIOHandler,
+            DataIOHandler<EventData> eventDataIOHandler)
         {
             _recalculateMetricsStrategy = recalculateMetricsStrategy;
             _userConfigurationDataIOHandler = userConfigurationDataIOHandler;
+            _eventDataIOHandler = eventDataIOHandler;
         }
 
-        public void AddEvent(EventData data, bool displayLogs = false)
+        public void AddEvent(EventData eventData)
         {
-            _events.Add(data);
-            // AddLog(data, displayLogs);
+            List<EventData> eventDataInstanceList = _eventDataIOHandler.LoadOrCreateDataModelInstanceList();
+            eventDataInstanceList.Add(eventData);
+            _eventDataIOHandler.SaveDataModelInstanceListToFile(dataModelInstanceList: eventDataInstanceList);
+        }
+
+        public void AddEvents(List<EventData> eventDataList)
+        {
+            List<EventData> eventDataInstanceList = _eventDataIOHandler.LoadOrCreateDataModelInstanceList();
+            eventDataInstanceList.AddRange(eventDataList);
+            _eventDataIOHandler.SaveDataModelInstanceListToFile(dataModelInstanceList: eventDataInstanceList);
         }
 
         public void SetRecalculateMetrics(IRecalculateMetricsStrategy<UserConfiguration> recalculateMetricsStrategy)
