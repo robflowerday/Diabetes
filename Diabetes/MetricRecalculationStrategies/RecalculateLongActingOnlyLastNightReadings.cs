@@ -34,7 +34,7 @@ namespace Diabetes.MetricRecalculationStrategies
             );
             
             // Find period with no actions taken
-            List<EventData> actionFreePeriodEvents = EventHelperFunctions.EventPeriodFilterFunctions.GetFirstXHourPeriodWithNoActions(
+            List<EventData> actionFreePeriodEvents = HelperFunctions.EventHelperFunctions.EventPeriodFilterFunctions.GetFirstXHourPeriodWithNoActions(
                 inputEvents: overnightEvents,
                 minHoursWithoutAction: minHoursWithoutAction, maxHoursWithoutAction: maxHoursWithoutAction
             );
