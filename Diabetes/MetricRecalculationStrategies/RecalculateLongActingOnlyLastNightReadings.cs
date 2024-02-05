@@ -1,20 +1,23 @@
 using System;
 using System.Collections.Generic;
+
 using Diabetes.ExternalStorage;
 using Diabetes.ExternalStorage.DataModels;
+using Diabetes.HelperFunctions;
+using Diabetes.HelperFunctions.EventHelperFunctions;
 
 
 namespace Diabetes.MetricRecalculationStrategies
 {
-    public class RecalculateLongActingOnlyStrategy : IRecalculateMetricsStrategy<UserConfiguration>
+    public class RecalculateLongActingOnlyStrategyLastNightReadings : IRecalculateMetricsStrategy<UserConfiguration>
     {
         public void RecalculateMetricsStrategy(List<EventData> events,
             DataIOHandler<UserConfiguration> userConfigurationDataIoHandler)
         {
             // Load user configuration
             UserConfiguration userConfigurationDataModelInstance = userConfigurationDataIoHandler.LoadOrCreateDataModelInstance();
-            TimeSpan overnightPeriodStart = userConfigurationDataModelInstance.OvernightStartTime;
-            TimeSpan overnightPeriodEnd = userConfigurationDataModelInstance.OvernightEndTime;
+            TimeSpan overnightPeriodStartTime = userConfigurationDataModelInstance.OvernightStartTime;
+            TimeSpan overnightPeriodEndTime = userConfigurationDataModelInstance.OvernightEndTime;
             double minHoursWithoutAction = userConfigurationDataModelInstance.MinHoursOvernightWithoutAction;
             double maxHoursWithoutAction = userConfigurationDataModelInstance.MaxHoursOvernightWithoutAction;
             double targetHoursAfterFirstEvent = userConfigurationDataModelInstance.TargetIsolationHours;
@@ -23,9 +26,11 @@ namespace Diabetes.MetricRecalculationStrategies
             int longActingInsulinDoseRecommendation = userConfigurationDataModelInstance.LongActingInsulinDoesRecommendation;
             
             // Filter events in applicable overnight period
-            List<EventData> overnightEvents = EventHelperFunctions.EventPeriodFilterFunctions.GetEventsInPeriod(
+            DateTime overnightPeriodStartDateTime = DateTimeHelperFunctions.GetMostRecentDateTime(overnightPeriodStartTime);
+            DateTime overnightPeriodEndDateTime = DateTimeHelperFunctions.GetMostRecentDateTime(overnightPeriodEndTime);
+            List<EventData> overnightEvents = EventPeriodFilterFunctions.GetEventsInPeriod(
                 inputEvents: events,
-                periodStart: overnightPeriodStart, periodEnd: overnightPeriodEnd
+                periodStartDateTime: overnightPeriodStartDateTime, periodEndDateTime: overnightPeriodEndDateTime
             );
             
             // Find period with no actions taken
