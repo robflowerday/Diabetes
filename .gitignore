@@ -1,4 +1,5 @@
+**/*.user
 **/*.cache
 **/*.idea
-**/bin/**
-**/obj/**
+**/bin/
+**/obj/
