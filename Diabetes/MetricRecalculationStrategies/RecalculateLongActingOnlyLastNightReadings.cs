@@ -64,11 +64,17 @@ namespace Diabetes.MetricRecalculationStrategies
                 $"No event can be found that is at least {minHoursAfterFirstEvent} after the first event in the action free period and at most {maxHoursAfterFirstEvent} after the first event in the action free period.");
             
             // Get last event in period
-            EventData endingGlucoseEvent = actionFreePeriodEvents.Last();
+            EventData endingGlucoseEvent = null;
+            if (actionFreePeriodEvents.Count > 0)
+                endingGlucoseEvent = actionFreePeriodEvents.Last();
             
             // Determine change in long acting insulin based off change in blood glucose readings
-            double? initialBloodGlucoseReading = startingGlucoseEvent.BloodGLucoseLevel;
-            double? finalBloodGlucoseReading = endingGlucoseEvent.BloodGLucoseLevel;
+            double? initialBloodGlucoseReading = null;
+            if (startingGlucoseEvent != null && startingGlucoseEvent.BloodGLucoseLevel != null)
+                initialBloodGlucoseReading = startingGlucoseEvent.BloodGLucoseLevel;
+            double? finalBloodGlucoseReading = null;
+            if (endingGlucoseEvent != null && endingGlucoseEvent.BloodGLucoseLevel != null)
+                finalBloodGlucoseReading = endingGlucoseEvent.BloodGLucoseLevel;
             int newLongActingInsulinDoseRecommendation = CalculateLongActingDosageIncrement.SimpleCalculation(
                 initialBloodGlucoseReading: initialBloodGlucoseReading,
                 finalBloodGlucoseReading: finalBloodGlucoseReading,
