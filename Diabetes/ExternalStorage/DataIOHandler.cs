@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 using Newtonsoft.Json;
 
@@ -92,6 +93,12 @@ namespace Diabetes.ExternalStorage
             // Convert data model instance to json string
             string jsonString = JsonConvert.SerializeObject(value: dataModelInstanceList, formatting: Formatting.Indented);
             
+            // If file doesn't already exist, create it
+            // if (!_fileIO.Exists(_jsonFilePath))
+            // {
+            //     Console.WriteLine($"JSON file path: {_jsonFilePath} does not exist, creating new file.");
+            //     File.Create(_jsonFilePath);
+            // }
             // Write json string to file
             _fileIO.WriteAllText(path: _jsonFilePath, contents: jsonString);
         }
