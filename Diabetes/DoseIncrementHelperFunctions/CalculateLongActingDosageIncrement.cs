@@ -10,7 +10,13 @@ namespace Diabetes.DoseIncrementHelperFunctions
         {
             // If the initial or final blood glucose reading is null, make no change
             if (initialBloodGlucoseReading == null || finalBloodGlucoseReading == null)
+            {
+                Console.WriteLine($"Recalculation of long acting glucose recommendation not possible without both Initial bloog glucose reading and final blood glucose reading.");
+                Console.WriteLine($"Initial blood glucose value given: {initialBloodGlucoseReading}.");
+                Console.WriteLine($"Final blood glucose value given: {finalBloodGlucoseReading}.");
+                Console.WriteLine($"Long acting insulin dose recommendation remains at: {currentLongActingInsulinDoseRecommendation}.");
                 return currentLongActingInsulinDoseRecommendation;
+            }
             
             // Calculate % change in blood glucose
             double? pctChangeInBloodGlucoseReading =
