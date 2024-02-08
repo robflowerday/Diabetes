@@ -14,9 +14,5 @@ namespace Diabetes
         public static readonly string CalculateMealBolus_NegativeICRInput =
             "Input insulin to carbohydrate value to CalculateMealBolus cannot be negative as this suggests consuming carbohydrates will bring blood sugar levels down." +
             "Insulin to carbohydrate value input: {0}.";
-
-        public static readonly string CalculateMealBolus_nullCarbsInput = "Input carbs cannot be null";
-
-        public static readonly string CalculateMealBolus_nullICRInput = "Input insulin to carb ratio cannot be null";
     }
 }
