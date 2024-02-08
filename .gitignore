@@ -3,3 +3,5 @@
 **/*.idea
 **/bin/
 **/obj/
+Diabetes.Test/bin/*
+Diabetes.Test/obj/*
