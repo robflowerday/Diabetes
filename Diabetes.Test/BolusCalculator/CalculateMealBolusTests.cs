@@ -3,6 +3,7 @@ using System;
 using NUnit.Framework;
 
 using Diabetes.BolusCalculator;
+using Diabetes;
 
 
 namespace Diabetes.Test.BolusCalculator
@@ -42,7 +43,7 @@ namespace Diabetes.Test.BolusCalculator
                 CalculateBolus.CalculateMealBolus(carbs: inputCarbs, icr: inputICR));
 
             string expectedExceptionMessage =
-                string.Format(ExceptionMessages.CalculateMealBolus_NegativeCarbs, inputCarbs);
+                string.Format(ExceptionMessages.CalculateMealBolus_NegativeCarbsInput, inputCarbs);
             
             Assert.AreEqual(expectedExceptionMessage, exception.Message);
         }
@@ -56,7 +57,7 @@ namespace Diabetes.Test.BolusCalculator
             var exception = Assert.Throws<ArgumentException>(code: () =>
                 CalculateBolus.CalculateMealBolus(carbs: inputCarbs, icr: inputICR));
 
-            string expectedExceptionMessage = string.Format(ExceptionMessages.CalculateMealBolus_ZeroICR, inputICR);
+            string expectedExceptionMessage = string.Format(ExceptionMessages.CalculateMealBolus_ZeroICRInput, inputICR);
             
             Assert.AreEqual(expectedExceptionMessage, exception.Message);
         }
@@ -70,7 +71,7 @@ namespace Diabetes.Test.BolusCalculator
             var exception = Assert.Throws<ArgumentException>(code: () =>
                 CalculateBolus.CalculateMealBolus(carbs: inputCarbs, icr: inputICR));
 
-            string expectedExceptionMessage = string.Format(ExceptionMessages.CalculateMealBolus_NegativeICR, inputICR);
+            string expectedExceptionMessage = string.Format(ExceptionMessages.CalculateMealBolus_NegativeICRInput, inputICR);
             
             Assert.AreEqual(expectedExceptionMessage, exception.Message);
         }

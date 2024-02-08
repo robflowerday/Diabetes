@@ -25,13 +25,13 @@ namespace Diabetes.BolusCalculator
         {
             if (carbs < 0)
                 throw new ArgumentException(
-                    message: string.Format(ExceptionMessages.CalculateMealBolus_NegativeCarbs, carbs));
+                    message: string.Format(ExceptionMessages.CalculateMealBolus_NegativeCarbsInput, carbs));
             if (icr == 0)
                 throw new ArgumentException(
-                    message: string.Format(ExceptionMessages.CalculateMealBolus_ZeroICR, icr));
+                    message: string.Format(ExceptionMessages.CalculateMealBolus_ZeroICRInput, icr));
             if (icr <= 0)
                 throw new ArgumentException(
-                    message: string.Format(ExceptionMessages.CalculateMealBolus_NegativeICR, icr));
+                    message: string.Format(ExceptionMessages.CalculateMealBolus_NegativeICRInput, icr));
             return carbs / icr;
         }
     }
