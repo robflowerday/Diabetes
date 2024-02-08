@@ -74,5 +74,33 @@ namespace Diabetes.Test.BolusCalculator
             
             Assert.AreEqual(expectedExceptionMessage, exception.Message);
         }
+
+        [Test]
+        public static void CalculateMealBolus_nullCarbsInput_ThrowsExceptionWithAppropriateErrorMessage()
+        {
+            double inputCarbs = null;
+            double inputICR = 2;
+
+            var exception = Assert.Throws<ArgumentNullException>(code: () =>
+                CalculateBolus.CalculateMealBolus(carbs: inputCarbs, icr: inputICR));
+
+            string expectedExceptionMessage = ExceptionMessages.CalculateMealBolus_nullCarbsInput;
+            
+            Assert.AreEqual(expectedExceptionMessage, exception.Message);
+        }
+
+        [Test]
+        public static void CalculateMealBolus_nullICRInput_ThrowsExceptionWithAppropriateErrorMessage()
+        {
+            double inputCarbs = 25;
+            double inputICR = null;
+
+            var exception = Assert.Throws<ArgumentNullException>(code: () =>
+                CalculateBolus.CalculateMealBolus(carbs: inputCarbs, icr: inputICR));
+
+            string expectedExceptionMessage = ExceptionMessages.CalculateMealBolus_nullICRInput;
+            
+            Assert.AreEqual(expectedExceptionMessage, exception.Message);
+        }
     }
 }

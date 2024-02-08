@@ -14,6 +14,8 @@ namespace Diabetes.BolusCalculator
         ///
         /// ArgumentException if a negative number or 0 is given for insulin
         /// to carb ratio as this does not make sense in reality.
+        ///
+        /// ArgumentNullException if either carbs or icr is input as null.
         /// </summary>
         /// <param name="carbs"> Carbohydrates eaten e.g. 63 </param>
         /// <param name="icr"> Insulin to carb ratio e.g. 6.3 means that 1 unit
@@ -21,6 +23,10 @@ namespace Diabetes.BolusCalculator
         /// <returns> Recommended bolus dose for meal as double. </returns>
         public static double CalculateMealBolus(double carbs, double icr)
         {
+            if (carbs == null)
+                throw new ArgumentNullException(ExceptionMessages.CalculateMealBolus_nullCarbsInput);
+            if (icr == null)
+                throw new ArgumentNullException(ExceptionMessages.CalculateMealBolus_nullICRInput);
             if (carbs < 0)
                 throw new ArgumentException(
                     message: string.Format(ExceptionMessages.CalculateMealBolus_NegativeCarbs, carbs));
