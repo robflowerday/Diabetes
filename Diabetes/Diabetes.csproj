@@ -68,7 +68,6 @@
         <Compile Include="MetricRecalculationStrategies\RecalculateLongActingOnlyLastNightReadings.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Program2.cs" />
-        <Compile Include="Program3.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />

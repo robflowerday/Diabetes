@@ -3,7 +3,7 @@ using System;
 using NUnit.Framework;
 
 
-namespace Diabetes.Test
+namespace Diabetes.Test.BolusCalculator
 {
     [TestFixture]
     public class CalculateCorrectionBolusTests
@@ -19,7 +19,7 @@ namespace Diabetes.Test
                 double currentBloodGlucose, double targetBloodGlucose, double insulinSensitivity,
                 double expectedBolusDoseRecommendation)
         {
-            double actualBolusDoseRecommendation = BolusCalculator.CalculateCorrectionBolus(
+            double actualBolusDoseRecommendation = Diabetes.BolusCalculator.CalculateCorrectionBolus(
                 currentBloodGlucose: currentBloodGlucose, targetBloodGlucose: targetBloodGlucose,
                 insulinSensitivityFactor: insulinSensitivity);
             
@@ -35,7 +35,7 @@ namespace Diabetes.Test
                 double currentBloodGlucose, double targetBloodGlucose, double insulinSensitivity,
                 double expectedBolusDoseRecommendation)
         {
-            double actualBolusDoseRecommendation = BolusCalculator.CalculateCorrectionBolus(
+            double actualBolusDoseRecommendation = Diabetes.BolusCalculator.CalculateCorrectionBolus(
                 currentBloodGlucose: currentBloodGlucose, targetBloodGlucose: targetBloodGlucose,
                 insulinSensitivityFactor: insulinSensitivity);
             
@@ -51,7 +51,7 @@ namespace Diabetes.Test
                 double currentBloodGlucose, double targetBloodGlucose, double insulinSensitivity,
                 double expectedBolusDoseRecommendation)
         {
-            double actualBolusDoseRecommendation = BolusCalculator.CalculateCorrectionBolus(
+            double actualBolusDoseRecommendation = Diabetes.BolusCalculator.CalculateCorrectionBolus(
                 currentBloodGlucose: currentBloodGlucose, targetBloodGlucose: targetBloodGlucose,
                 insulinSensitivityFactor: insulinSensitivity);
             
@@ -69,7 +69,7 @@ namespace Diabetes.Test
             double insulinSensitivityFactor = 3.3;
 
             var exception = Assert.Throws<ArgumentOutOfRangeException>(code: () =>
-                BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
+                Diabetes.BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
                     targetBloodGlucose: targetBloodGlucose, insulinSensitivityFactor: insulinSensitivityFactor));
 
             string expectedExceptionMessage =
@@ -91,7 +91,7 @@ namespace Diabetes.Test
         {
 
             var exception = Assert.Throws<ArgumentOutOfRangeException>(code: () =>
-                BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
+                Diabetes.BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
                     targetBloodGlucose: targetBloodGlucose, insulinSensitivityFactor: insulinSensitivityFactor));
 
             string expectedExceptionMessage =
@@ -113,7 +113,7 @@ namespace Diabetes.Test
             double insulinSensitivityFactor = 3.3;
 
             var exception = Assert.Throws<ArgumentOutOfRangeException>(code: () =>
-                BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
+                Diabetes.BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
                     targetBloodGlucose: targetBloodGlucose, insulinSensitivityFactor: insulinSensitivityFactor));
 
             string expectedExceptionMessage =
@@ -135,7 +135,7 @@ namespace Diabetes.Test
         {
 
             var exception = Assert.Throws<ArgumentOutOfRangeException>(code: () =>
-                BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
+                Diabetes.BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
                     targetBloodGlucose: targetBloodGlucose, insulinSensitivityFactor: insulinSensitivityFactor));
 
             string expectedExceptionMessage =
@@ -157,7 +157,7 @@ namespace Diabetes.Test
         {
 
             var exception = Assert.Throws<ArgumentOutOfRangeException>(code: () =>
-                BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
+                Diabetes.BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
                     targetBloodGlucose: targetBloodGlucose, insulinSensitivityFactor: insulinSensitivityFactor));
 
             string expectedExceptionMessage =
@@ -179,7 +179,7 @@ namespace Diabetes.Test
         {
 
             var exception = Assert.Throws<ArgumentOutOfRangeException>(code: () =>
-                BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
+                Diabetes.BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
                     targetBloodGlucose: targetBloodGlucose, insulinSensitivityFactor: insulinSensitivityFactor));
 
             string expectedExceptionMessage =
@@ -201,7 +201,7 @@ namespace Diabetes.Test
             double insulinSensitivityFactor = 0;
 
             var exception = Assert.Throws<ArgumentOutOfRangeException>(code: () =>
-                BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
+                Diabetes.BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
                     targetBloodGlucose: targetBloodGlucose, insulinSensitivityFactor: insulinSensitivityFactor));
 
             string expectedExceptionMessage =
@@ -222,7 +222,7 @@ namespace Diabetes.Test
         {
 
             var exception = Assert.Throws<ArgumentOutOfRangeException>(code: () =>
-                BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
+                Diabetes.BolusCalculator.CalculateCorrectionBolus(currentBloodGlucose: currentBloodGlucose,
                     targetBloodGlucose: targetBloodGlucose, insulinSensitivityFactor: insulinSensitivityFactor));
 
             string expectedExceptionMessage =

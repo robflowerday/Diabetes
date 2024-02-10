@@ -1,4 +1,5 @@
 using System;
+
 namespace Diabetes
 {
     public static class BolusCalculator
