@@ -2,7 +2,6 @@ using System;
 
 using NUnit.Framework;
 
-using Diabetes.BolusCalculator;
 using Diabetes;
 
 
@@ -11,6 +10,8 @@ namespace Diabetes.Test.BolusCalculator
     [TestFixture]
     public class CalculateMealBolusTests
     {
+        // Valid inputs
+        
         [Test]
         [TestCase(10, 1, 10)]
         [TestCase(15.6, 5.2, 3)]
@@ -18,10 +19,10 @@ namespace Diabetes.Test.BolusCalculator
         public static void CalculateMealBolus_ValidInputValues_ReturnsMealBolus(
             double inputCarbs, double inputICR, double expectedMealBolusValue)
         {
-            double actualMealBolusValue = CalculateBolus.CalculateMealBolus(carbs: inputCarbs, icr: inputICR);
+            double actualMealBolusValue = Diabetes.BolusCalculator.CalculateMealBolus(carbs: inputCarbs, icr: inputICR);
             Assert.AreEqual(expectedMealBolusValue, actualMealBolusValue);
         }
-
+        
         [Test]
         [TestCase(0, 5, 0)]
         [TestCase(0.0, 5.5, 0.0)]
@@ -29,25 +30,30 @@ namespace Diabetes.Test.BolusCalculator
         public static void CalculateMealBolus_ZeroCarbsInput_ReturnsZero(
             double inputCarbs, double inputICR, double expectedMealBolusValue)
         {
-            double actualMealBolusValue = CalculateBolus.CalculateMealBolus(carbs: inputCarbs, icr: inputICR);
+            double actualMealBolusValue = Diabetes.BolusCalculator.CalculateMealBolus(carbs: inputCarbs, icr: inputICR);
             Assert.AreEqual(expectedMealBolusValue, actualMealBolusValue);
         }
 
+        // Carb input exceptions
+        
         [Test]
         [TestCase(-3, 2)]
         [TestCaseAttribute(-3.20, 4.4)]
-        public static void CalculateMealBolus_NegativeCarbsInput_ThrowsArgumentExceptionWithAppropriateErrorMessage(
+        public static void CalculateMealBolus_NegativeCarbsInput_ThrowsArgumentOutOfRangeExceptionWithAppropriateErrorMessage(
             double inputCarbs, double inputICR)
         {
-            var exception = Assert.Throws<ArgumentException>(code: () =>
-                CalculateBolus.CalculateMealBolus(carbs: inputCarbs, icr: inputICR));
+            var exception = Assert.Throws<ArgumentOutOfRangeException>(code: () =>
+                Diabetes.BolusCalculator.CalculateMealBolus(carbs: inputCarbs, icr: inputICR));
 
             string expectedExceptionMessage =
                 string.Format(ExceptionMessages.CalculateMealBolus_NegativeCarbsInput, inputCarbs);
             
+            Assert.AreEqual();
             Assert.AreEqual(expectedExceptionMessage, exception.Message);
         }
 
+        // Insulin to carb ratio exceptions
+        
         [Test]
         [TestCase(13, 0)]
         [TestCase(23.4, 0.0)]
@@ -55,7 +61,7 @@ namespace Diabetes.Test.BolusCalculator
             double inputCarbs, double inputICR)
         {
             var exception = Assert.Throws<ArgumentException>(code: () =>
-                CalculateBolus.CalculateMealBolus(carbs: inputCarbs, icr: inputICR));
+                Diabetes.BolusCalculator.CalculateMealBolus(carbs: inputCarbs, icr: inputICR));
 
             string expectedExceptionMessage = string.Format(ExceptionMessages.CalculateMealBolus_ZeroICRInput, inputICR);
             
@@ -69,7 +75,7 @@ namespace Diabetes.Test.BolusCalculator
             double inputCarbs, double inputICR)
         {
             var exception = Assert.Throws<ArgumentException>(code: () =>
-                CalculateBolus.CalculateMealBolus(carbs: inputCarbs, icr: inputICR));
+                Diabetes.BolusCalculator.CalculateMealBolus(carbs: inputCarbs, icr: inputICR));
 
             string expectedExceptionMessage = string.Format(ExceptionMessages.CalculateMealBolus_NegativeICRInput, inputICR);
             

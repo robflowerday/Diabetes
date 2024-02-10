@@ -48,7 +48,7 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="BolusCalculator\CalculateBolus.cs" />
+        <Compile Include="BolusCalculator.cs" />
         <Compile Include="DiabetesManagement.cs" />
         <Compile Include="DoseIncrementHelperFunctions\CalculateLongActingDosageIncrement.cs" />
         <Compile Include="ExceptionMessages.cs" />

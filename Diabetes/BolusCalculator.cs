@@ -1,11 +1,8 @@
 using System;
 
-using Diabetes;
-
-
-namespace Diabetes.BolusCalculator
+namespace Diabetes
 {
-    public static class CalculateBolus
+    public static class BolusCalculator
     {
         /// <summary>
         /// Determines the units of insulin needed in order to cover the
