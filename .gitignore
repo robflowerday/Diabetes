@@ -1,7 +1,4 @@
-**/*.user
-**/*.cache
-**/*.idea
-**/bin/
-**/obj/
-Diabetes.Test/bin/*
-Diabetes.Test/obj/*
+bin/
+obj/
+.idea/
+*.user
