@@ -60,6 +60,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="BolusCalculator\CalculateCorrectionBolusTests.cs" />
         <Compile Include="HelperFunctions\DateTimeHelperFunctionsTests\GetSleepingPeriodStartAndEndDateTimesTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>

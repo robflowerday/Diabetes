@@ -48,8 +48,10 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="BolusCalculator.cs" />
         <Compile Include="DiabetesManagement.cs" />
         <Compile Include="DoseIncrementHelperFunctions\CalculateLongActingDosageIncrement.cs" />
+        <Compile Include="ExceptionMessages.cs" />
         <Compile Include="ExternalStorage\DataModels\EventData.cs" />
         <Compile Include="ExternalStorage\DataModels\IDataModel.cs" />
         <Compile Include="ExternalStorage\DataModels\UserConfiguration.cs" />
