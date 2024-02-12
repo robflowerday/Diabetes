@@ -51,6 +51,7 @@
         <Compile Include="BolusCalculator.cs" />
         <Compile Include="DiabetesManagement.cs" />
         <Compile Include="DoseIncrementHelperFunctions\CalculateLongActingDosageIncrement.cs" />
+        <Compile Include="ExceptionMessages.cs" />
         <Compile Include="ExternalStorage\DataModels\EventData.cs" />
         <Compile Include="ExternalStorage\DataModels\IDataModel.cs" />
         <Compile Include="ExternalStorage\DataModels\UserConfiguration.cs" />
@@ -67,6 +68,7 @@
         <Compile Include="MetricRecalculationStrategies\RecalculateLongActingOnlyLastNightReadings.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Program2.cs" />
+        <Compile Include="Program3.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />

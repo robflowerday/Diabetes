@@ -60,7 +60,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="BolusCalculator\CalculateInsuinOnboardTests.cs" />
+        <Compile Include="BolusCalculator\CalculateExponentialDecayTests.cs" />
         <Compile Include="BolusCalculator\CalculateRemainingInsulinTests.cs" />
         <Compile Include="HelperFunctions\DateTimeHelperFunctionsTests\GetSleepingPeriodStartAndEndDateTimesTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
